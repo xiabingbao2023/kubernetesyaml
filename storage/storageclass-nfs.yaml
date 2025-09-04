@@ -82,6 +82,9 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: nfs-data
+#下面内容可以控制pvc创建出来的具体路径的文件夹名称
+parameters:
+  pathPattern: shufeng-${.PVC.name}
 provisioner: k8s-sigs.io/nfs-subdir-external-provisioner
 allowVolumeExpansion: true
 reclaimPolicy: Delete
